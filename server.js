@@ -18,9 +18,6 @@ app.engine('hbs', exphbr.engine({
 
 app.set('view engine', 'hbs')     //Sets our app to use the handlebars engine
 
-
-
-
 //Serves static files (we need it to import a css file)
 app.use(express.static(__dirname + 'public'))
 //Sets a basic route
@@ -35,7 +32,6 @@ app.listen(process.env.PORT, () => console.log(`App listening to port ${process.
 
 app.get('/', (req, res) => {
     res.render('./layouts/register', {layout:'register',title:'tutorial' });
-    // res.render('./main');
 });
 
 app.post('/', function(req, res){
@@ -47,5 +43,5 @@ app.post('/', function(req, res){
     lastName: body.lastName,
     email: body.email
     };
-    res.render('./main', res_body);
+    res.render('./registerSuccess', res_body);
 });
